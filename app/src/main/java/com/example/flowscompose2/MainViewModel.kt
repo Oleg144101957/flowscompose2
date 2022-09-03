@@ -6,6 +6,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
@@ -31,6 +32,7 @@ class MainViewModel : ViewModel() {
                 .filter {
                     it % 2 == 0
                 }
+                .map { it * 10 }
                 .collect { time ->
                 delay(1500L)
                 println("Current time is $time")
